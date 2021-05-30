@@ -1,6 +1,7 @@
 package cn.jkg.taotao.service;
 
 
+import cn.jkg.taotao.pojo.EasyUIDataGridResult;
 import cn.jkg.taotao.pojo.TbItem;
 
 /**
@@ -20,4 +21,12 @@ public interface ItemService {
      * @return cn.jkg.taotao.pojo.TbItem
      **/
     TbItem getItemById(Long itemId);
+    /**
+     * @Author jkg
+     * @Description 得到商品的表格数据
+     * @Date 21:27 2021/5/30
+     * @Param [java.lang.Integer, java.lang.Integer] [page, rows]
+     * @return cn.jkg.taotao.pojo.EasyUIDataGridResult
+     **/
+    EasyUIDataGridResult getItemList(Integer page, Integer rows);
 }

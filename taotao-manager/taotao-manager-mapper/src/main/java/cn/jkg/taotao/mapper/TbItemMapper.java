@@ -2,6 +2,8 @@ package cn.jkg.taotao.mapper;
 
 import cn.jkg.taotao.pojo.TbItem;
 
+import java.util.List;
+
 public interface TbItemMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,6 @@ public interface TbItemMapper {
     int updateByPrimaryKeySelective(TbItem record);
 
     int updateByPrimaryKey(TbItem record);
+
+    List<TbItem> selectAllItems();
 }
