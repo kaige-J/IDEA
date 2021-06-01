@@ -1,14 +1,17 @@
 package cn.jkg.taotao.service.impl;
 
+import cn.jkg.taotao.mapper.TbItemDescMapper;
 import cn.jkg.taotao.mapper.TbItemMapper;
-import cn.jkg.taotao.pojo.EasyUIDataGridResult;
-import cn.jkg.taotao.pojo.TbItem;
+import cn.jkg.taotao.mapper.TbItemParamMapper;
+import cn.jkg.taotao.pojo.*;
 import cn.jkg.taotao.service.ItemService;
+import cn.jkg.taotao.utils.IDUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 
 /**
@@ -23,6 +26,8 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
     @Autowired
     private TbItemMapper itemMapper;
+    private TbItemDescMapper itemDescMapper;
+    private TbItemParamMapper itemParamMapper;
     /**
      * @param itemId
      * @return cn.jkg.taotao.pojo.TbItem
@@ -55,5 +60,23 @@ public class ItemServiceImpl implements ItemService {
         dataGrid.setTotal(info.getTotal());
         dataGrid.setRows(items);
         return dataGrid;
+    }
+
+    /**
+     * @Author jkg
+     * @Description 添加商品
+     * @Date 01:39 2021/6/2
+     * @Param [cn.jkg.taotao.pojo.TbItem, cn.jkg.taotao.pojo.TbItemDesc, cn.jkg.taotao.pojo.TbItemParam] [item, desc, param]
+     * @return boolean
+     **/
+    @Override
+    public boolean createItem(TbItem item, TbItemDesc desc, TbItemParam param) {
+        int i1 = itemMapper.insert(item);
+        int i2 = itemDescMapper.insert(desc);
+        int i3 = itemParamMapper.insert(param);
+        if (i1 != 0 && i2 != 0 && i3 != 0) {
+            return true;
+        }
+        return false;
     }
 }

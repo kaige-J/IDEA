@@ -1,8 +1,7 @@
 package cn.jkg.taotao.service;
 
 
-import cn.jkg.taotao.pojo.EasyUIDataGridResult;
-import cn.jkg.taotao.pojo.TbItem;
+import cn.jkg.taotao.pojo.*;
 
 /**
  * @ProjectName: IDEA
@@ -29,4 +28,12 @@ public interface ItemService {
      * @return cn.jkg.taotao.pojo.EasyUIDataGridResult
      **/
     EasyUIDataGridResult getItemList(Integer page, Integer rows);
+    /**
+     * @Author jkg
+     * @Description 添加商品
+     * @Date 01:39 2021/6/2
+     * @Param [cn.jkg.taotao.pojo.TbItem, cn.jkg.taotao.pojo.TbItemDesc, cn.jkg.taotao.pojo.TbItemParam] [item, desc, param]
+     * @return boolean
+     **/
+    boolean createItem(TbItem item, TbItemDesc desc, TbItemParam param);
 }
