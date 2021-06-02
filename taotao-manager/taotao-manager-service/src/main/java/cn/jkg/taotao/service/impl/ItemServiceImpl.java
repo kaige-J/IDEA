@@ -2,7 +2,7 @@ package cn.jkg.taotao.service.impl;
 
 import cn.jkg.taotao.mapper.TbItemDescMapper;
 import cn.jkg.taotao.mapper.TbItemMapper;
-import cn.jkg.taotao.mapper.TbItemParamMapper;
+import cn.jkg.taotao.mapper.TbItemParamItemMapper;
 import cn.jkg.taotao.pojo.*;
 import cn.jkg.taotao.service.ItemService;
 import cn.jkg.taotao.utils.IDUtils;
@@ -27,7 +27,7 @@ public class ItemServiceImpl implements ItemService {
     @Autowired
     private TbItemMapper itemMapper;
     private TbItemDescMapper itemDescMapper;
-    private TbItemParamMapper itemParamMapper;
+    private TbItemParamItemMapper itemParamItemMapper;
     /**
      * @param itemId
      * @return cn.jkg.taotao.pojo.TbItem
@@ -65,15 +65,15 @@ public class ItemServiceImpl implements ItemService {
     /**
      * @Author jkg
      * @Description 添加商品
-     * @Date 01:39 2021/6/2
-     * @Param [cn.jkg.taotao.pojo.TbItem, cn.jkg.taotao.pojo.TbItemDesc, cn.jkg.taotao.pojo.TbItemParam] [item, desc, param]
+     * @Date 22:01 2021/6/2
+     * @Param [cn.jkg.taotao.pojo.TbItem, cn.jkg.taotao.pojo.TbItemDesc, cn.jkg.taotao.pojo.TbItemParamItem] [item, desc, param]
      * @return boolean
      **/
     @Override
-    public boolean createItem(TbItem item, TbItemDesc desc, TbItemParam param) {
+    public boolean createItem(TbItem item, TbItemDesc desc, TbItemParamItem param) {
         int i1 = itemMapper.insert(item);
         int i2 = itemDescMapper.insert(desc);
-        int i3 = itemParamMapper.insert(param);
+        int i3 = itemParamItemMapper.insert(param);
         if (i1 != 0 && i2 != 0 && i3 != 0) {
             return true;
         }

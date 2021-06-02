@@ -1,14 +1,13 @@
 package cn.jkg.taotao.controller;
 
-import cn.jkg.taotao.pojo.EasyUIDataGridResult;
-import cn.jkg.taotao.pojo.TbItem;
+import cn.jkg.taotao.pojo.*;
 import cn.jkg.taotao.service.ItemService;
+import cn.jkg.taotao.utils.IDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 /**
  * @ProjectName: IDEA
@@ -35,5 +34,35 @@ public class ItemController {
     private EasyUIDataGridResult getItemList(@RequestParam(defaultValue = "1") Integer page,
                                              @RequestParam(defaultValue = "30") Integer rows){
         return itemService.getItemList(page,rows);
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @ResponseBody
+    private TaotaoResult createItem(TbItem item, String desc, String itemParams){
+        long id = IDUtils.genItemId();
+        Date date = new Date();
+        item.setCreated(date);
+        item.setUpdated(date);
+        item.setId(id);
+        //商品的状态：1 正常 2 下架 3 删除
+        item.setStatus((byte) 1);
+
+        TbItemDesc itemDesc = new TbItemDesc();
+        itemDesc.setItemDesc(desc);
+        itemDesc.setItemId(id);
+        itemDesc.setCreated(date);
+        itemDesc.setUpdated(date);
+
+        TbItemParamItem itemParamItem = new TbItemParamItem();
+        itemParamItem.setItemId(id);
+        itemParamItem.setParamData(itemParams);
+        itemParamItem.setCreated(date);
+        itemParamItem.setUpdated(date);
+
+        boolean b = itemService.createItem(item, itemDesc, itemParamItem);
+        if (b){
+            return TaotaoResult.ok();
+        }
+        return new TaotaoResult();
     }
 }

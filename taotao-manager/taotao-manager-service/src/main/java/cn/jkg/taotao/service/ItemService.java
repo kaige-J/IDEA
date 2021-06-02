@@ -31,9 +31,9 @@ public interface ItemService {
     /**
      * @Author jkg
      * @Description 添加商品
-     * @Date 01:39 2021/6/2
-     * @Param [cn.jkg.taotao.pojo.TbItem, cn.jkg.taotao.pojo.TbItemDesc, cn.jkg.taotao.pojo.TbItemParam] [item, desc, param]
+     * @Date 21:57 2021/6/2
+     * @Param [cn.jkg.taotao.pojo.TbItem, cn.jkg.taotao.pojo.TbItemDesc, cn.jkg.taotao.pojo.TbItemParamItem] [item, desc, param]
      * @return boolean
      **/
-    boolean createItem(TbItem item, TbItemDesc desc, TbItemParam param);
+    boolean createItem(TbItem item, TbItemDesc desc, TbItemParamItem param);
 }
