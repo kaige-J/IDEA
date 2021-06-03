@@ -103,5 +103,10 @@
         <include refid="Base_Column_List" />
         from tb_item_param
     </select>
-
+    <select id="selectByItemCatID" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="Base_Column_List" />
+        from tb_item_param
+        where item_cat_id = #{id,jdbcType=BIGINT}
+    </select>
 </mapper>

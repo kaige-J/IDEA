@@ -1,6 +1,7 @@
 package cn.jkg.taotao.service;
 
 import cn.jkg.taotao.pojo.EasyUIDataGridResult;
+import cn.jkg.taotao.pojo.TbItemParam;
 
 /**
  * @ProjectName: IDEA
@@ -19,4 +20,12 @@ public interface ItemParamService {
      * @return cn.jkg.taotao.pojo.EasyUIDataGridResult
      **/
     EasyUIDataGridResult getItemParamList(Integer page , Integer rows);
+    /**
+     * @Author jkg
+     * @Description 通过商品类别id查询商品模板
+     * @Date 23:22 2021/6/3
+     * @Param [java.lang.Long] [cid]
+     * @return cn.jkg.taotao.pojo.TbItemParam
+     **/
+    TbItemParam getItemParamByCID(Long cid);
 }

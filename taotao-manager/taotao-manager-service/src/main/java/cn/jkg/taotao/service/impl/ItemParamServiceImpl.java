@@ -2,6 +2,7 @@ package cn.jkg.taotao.service.impl;
 
 import cn.jkg.taotao.mapper.TbItemParamMapper;
 import cn.jkg.taotao.pojo.EasyUIDataGridResult;
+import cn.jkg.taotao.pojo.TbItemParam;
 import cn.jkg.taotao.service.ItemParamService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -40,5 +41,18 @@ public class ItemParamServiceImpl implements ItemParamService {
         result.setRows(list);
         result.setTotal(info.getTotal());
         return result;
+    }
+
+    /**
+     * @param cid
+     * @return cn.jkg.taotao.pojo.TbItemParam
+     * @Author jkg
+     * @Description 通过商品类别id查询商品模板
+     * @Date 23:22 2021/6/3
+     * @Param [java.lang.Long] [cid]
+     */
+    @Override
+    public TbItemParam getItemParamByCID(Long cid) {
+        return itemParamMapper.selectByItemCatID(cid);
     }
 }
