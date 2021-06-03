@@ -98,4 +98,10 @@
             updated = #{updated,jdbcType=TIMESTAMP}
         where id = #{id,jdbcType=BIGINT}
     </update>
+    <select id="selectAllItemParams" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from tb_item_param
+    </select>
+
 </mapper>
