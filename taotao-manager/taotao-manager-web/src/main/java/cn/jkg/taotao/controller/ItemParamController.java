@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @ProjectName: IDEA
@@ -55,5 +56,14 @@ public class ItemParamController {
             return TaotaoResult.ok();
         }
         return TaotaoResult.build(404, "添加失败");
+    }
+    @RequestMapping("/delete")
+    @ResponseBody
+    private TaotaoResult deleteItemParam(List ids){
+        boolean b = itemParamService.deleteItemParamsByIDS(ids);
+        if (b){
+            return TaotaoResult.ok();
+        }
+        return TaotaoResult.build(404,"删除失败");
     }
 }

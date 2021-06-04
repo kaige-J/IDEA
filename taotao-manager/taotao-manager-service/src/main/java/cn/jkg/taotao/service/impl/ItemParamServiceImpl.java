@@ -72,4 +72,21 @@ public class ItemParamServiceImpl implements ItemParamService {
         }
         return false;
     }
+
+    /**
+     * @param ids
+     * @return boolean
+     * @Author jkg
+     * @Description 根据商品模板id列表删除商品模板
+     * @Date 23:47 2021/6/4
+     * @Param [java.util.List] [ids]
+     */
+    @Override
+    public boolean deleteItemParamsByIDS(List ids) {
+        int i = itemParamMapper.deleteByIDS(ids);
+        if (i != 0){
+            return true;
+        }
+        return false;
+    }
 }

@@ -4,6 +4,8 @@ import cn.jkg.taotao.pojo.EasyUIDataGridResult;
 
 import cn.jkg.taotao.pojo.TbItemParam;
 
+import java.util.List;
+
 /**
  * @ProjectName: IDEA
  * @Package: cn.jkg.taotao.service
@@ -37,4 +39,12 @@ public interface ItemParamService {
      * @return int
      **/
     boolean addItemParam(TbItemParam itemParam);
+    /**
+     * @Author jkg
+     * @Description 根据商品模板id列表删除商品模板
+     * @Date 23:47 2021/6/4
+     * @Param [java.util.List] [ids]
+     * @return boolean
+     **/
+    boolean deleteItemParamsByIDS(List ids);
 }

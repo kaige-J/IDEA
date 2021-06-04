@@ -21,11 +21,6 @@
         where id = #{id,jdbcType=BIGINT}
     </select>
 
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-        delete from tb_item_param
-        where id = #{id,jdbcType=BIGINT}
-    </delete>
-
     <insert id="insert" parameterType="cn.jkg.taotao.pojo.TbItemParam" >
         insert into tb_item_param (id, item_cat_id, param_data, 
             created, updated)
@@ -109,4 +104,16 @@
         from tb_item_param
         where item_cat_id = #{id,jdbcType=BIGINT}
     </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+        delete from tb_item_param
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <delete id="deleteByIDS" parameterType="java.util.List">
+        delete from tb_item_param
+        where
+        id IN
+        <foreach collection="ids" item="item" index="index" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>
