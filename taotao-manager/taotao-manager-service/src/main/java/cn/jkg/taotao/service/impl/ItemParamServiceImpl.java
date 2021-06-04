@@ -55,4 +55,21 @@ public class ItemParamServiceImpl implements ItemParamService {
     public TbItemParam getItemParamByCID(Long cid) {
         return itemParamMapper.selectByItemCatID(cid);
     }
+
+    /**
+     * @param itemParam
+     * @return int
+     * @Author jkg
+     * @Description 添加一个商品的模板
+     * @Date 00:50 2021/6/4
+     * @Param [cn.jkg.taotao.pojo.TbItemParam] [itemParam]
+     */
+    @Override
+    public boolean addItemParam(TbItemParam itemParam) {
+        int i = itemParamMapper.insert(itemParam);
+        if (i != 0){
+            return true;
+        }
+        return false;
+    }
 }

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
+
 /**
  * @ProjectName: IDEA
  * @Package: cn.jkg.taotao.controller
@@ -40,5 +42,18 @@ public class ItemParamController {
             return TaotaoResult.ok(itemParam);
         }
         return TaotaoResult.build(404,"该商品的没有模板存在！", null);
+    }
+
+    @RequestMapping("/save/{cid}")
+    @ResponseBody
+    private TaotaoResult addItemParam(@PathVariable Long cid, TbItemParam itemParam){
+        itemParam.setItemCatId(cid);
+        itemParam.setCreated(new Date());
+        itemParam.setUpdated(new Date());
+        boolean b = itemParamService.addItemParam(itemParam);
+        if (b) {
+            return TaotaoResult.ok();
+        }
+        return TaotaoResult.build(404, "添加失败");
     }
 }

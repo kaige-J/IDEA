@@ -1,6 +1,7 @@
 package cn.jkg.taotao.service;
 
 import cn.jkg.taotao.pojo.EasyUIDataGridResult;
+
 import cn.jkg.taotao.pojo.TbItemParam;
 
 /**
@@ -28,4 +29,12 @@ public interface ItemParamService {
      * @return cn.jkg.taotao.pojo.TbItemParam
      **/
     TbItemParam getItemParamByCID(Long cid);
+    /**
+     * @Author jkg
+     * @Description 添加一个商品的模板
+     * @Date 00:50 2021/6/4
+     * @Param [cn.jkg.taotao.pojo.TbItemParam] [itemParam]
+     * @return int
+     **/
+    boolean addItemParam(TbItemParam itemParam);
 }
