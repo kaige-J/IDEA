@@ -112,8 +112,8 @@
         delete from tb_item_param
         where
         id IN
-        <foreach collection="ids" item="item" index="index" open="(" close=")" separator=",">
-            #{item}
+        <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
         </foreach>
     </delete>
 </mapper>

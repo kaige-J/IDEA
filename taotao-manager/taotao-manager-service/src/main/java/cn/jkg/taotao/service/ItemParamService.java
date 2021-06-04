@@ -46,5 +46,5 @@ public interface ItemParamService {
      * @Param [java.util.List] [ids]
      * @return boolean
      **/
-    boolean deleteItemParamsByIDS(List ids);
+    boolean deleteItemParamsByIDS(List<String> ids);
 }

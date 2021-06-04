@@ -82,7 +82,7 @@ public class ItemParamServiceImpl implements ItemParamService {
      * @Param [java.util.List] [ids]
      */
     @Override
-    public boolean deleteItemParamsByIDS(List ids) {
+    public boolean deleteItemParamsByIDS(List<String> ids) {
         int i = itemParamMapper.deleteByIDS(ids);
         if (i != 0){
             return true;

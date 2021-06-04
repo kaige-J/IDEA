@@ -59,7 +59,7 @@ public class ItemParamController {
     }
     @RequestMapping("/delete")
     @ResponseBody
-    private TaotaoResult deleteItemParam(List ids){
+    private TaotaoResult deleteItemParam(@RequestParam("ids") List<String> ids){
         boolean b = itemParamService.deleteItemParamsByIDS(ids);
         if (b){
             return TaotaoResult.ok();

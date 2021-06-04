@@ -39,5 +39,5 @@ public interface TbItemParamMapper {
      * @Param [java.util.List] [ids]
      * @return int
      **/
-    int deleteByIDS(List ids);
+    int deleteByIDS(List<String> ids);
 }
