@@ -35,7 +35,7 @@ public class ItemParamController {
         return itemParamService.getItemParamList(page, rows);
     }
 
-    @RequestMapping("/query/itemcatid/{cid}")
+    @RequestMapping("/query/{cid}")
     @ResponseBody
     private TaotaoResult queryItemParamByCID(@PathVariable Long cid){
         TbItemParam itemParam = itemParamService.getItemParamByCID(cid);
@@ -66,4 +66,6 @@ public class ItemParamController {
         }
         return TaotaoResult.build(404,"删除失败");
     }
+
+
 }
