@@ -171,4 +171,12 @@
     <select id="selectAllItems" resultMap="BaseResultMap" >
         select * from tb_item
     </select>
+    <delete id="deleteByIDS" parameterType="java.util.List">
+        delete from tb_item
+        where
+        id IN
+        <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

@@ -3,6 +3,8 @@ package cn.jkg.taotao.service;
 
 import cn.jkg.taotao.pojo.*;
 
+import java.util.List;
+
 /**
  * @ProjectName: IDEA
  * @Package: cn.jkg.taotao.service.impl
@@ -36,4 +38,12 @@ public interface ItemService {
      * @return boolean
      **/
     boolean createItem(TbItem item, TbItemDesc desc, TbItemParamItem param);
+    /**
+     * @Author jkg
+     * @Description 根据商品id列表删除对应的商品
+     * @Date 17:05 2021/6/6
+     * @Param [java.util.List] [ids]
+     * @return boolean
+     **/
+    boolean deleteItemsByIDS(List ids);
 }

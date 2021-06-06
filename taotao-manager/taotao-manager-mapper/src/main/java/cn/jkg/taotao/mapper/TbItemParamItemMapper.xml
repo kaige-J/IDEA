@@ -105,4 +105,12 @@
         from tb_item_param_item
         where item_id = #{itemID,jdbcType=BIGINT}
     </select>
+    <delete id="deleteByIDS" parameterType="java.util.List">
+        delete from tb_item_param_item
+        where
+        item_id IN
+        <foreach collection="list" item="itemId" index="index" open="(" close=")" separator=",">
+            #{itemId}
+        </foreach>
+    </delete>
 </mapper>

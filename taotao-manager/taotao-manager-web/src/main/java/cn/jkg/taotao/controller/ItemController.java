@@ -1,6 +1,7 @@
 package cn.jkg.taotao.controller;
 
 import cn.jkg.taotao.pojo.*;
+import cn.jkg.taotao.service.ItemDescService;
 import cn.jkg.taotao.service.ItemService;
 import cn.jkg.taotao.utils.IDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @ProjectName: IDEA
@@ -64,5 +66,15 @@ public class ItemController {
             return TaotaoResult.ok();
         }
         return new TaotaoResult();
+    }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    private TaotaoResult deleteItemsByIDS(@RequestParam(value = "ids") List ids){
+        boolean b = itemService.deleteItemsByIDS(ids);
+        if (b){
+            return TaotaoResult.ok();
+        }
+        return TaotaoResult.build(404,"删除失败！",null);
     }
 }

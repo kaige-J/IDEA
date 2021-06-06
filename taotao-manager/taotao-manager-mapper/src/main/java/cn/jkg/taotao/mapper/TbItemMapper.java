@@ -18,4 +18,6 @@ public interface TbItemMapper {
     int updateByPrimaryKey(TbItem record);
 
     List<TbItem> selectAllItems();
+
+    int deleteByIDS(List ids);
 }

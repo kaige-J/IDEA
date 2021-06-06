@@ -79,4 +79,23 @@ public class ItemServiceImpl implements ItemService {
         }
         return false;
     }
+
+    /**
+     * @param ids
+     * @return boolean
+     * @Author jkg
+     * @Description 根据商品id列表删除对应的商品
+     * @Date 17:05 2021/6/6
+     * @Param [java.util.List] [ids]
+     */
+    @Override
+    public boolean deleteItemsByIDS(List ids) {
+        int i1 = itemDescMapper.deleteByIDS(ids);
+        int i2 = itemParamItemMapper.deleteByIDS(ids);
+        int i3 = itemMapper.deleteByIDS(ids);
+        if (i1 != 0 && i2 != 0 && i3 != 0) {
+            return true;
+        }
+        return false;
+    }
 }
