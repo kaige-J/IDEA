@@ -26,7 +26,9 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
     @Autowired
     private TbItemMapper itemMapper;
+    @Autowired
     private TbItemDescMapper itemDescMapper;
+    @Autowired
     private TbItemParamItemMapper itemParamItemMapper;
     /**
      * @param itemId

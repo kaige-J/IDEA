@@ -1,7 +1,6 @@
 package cn.jkg.taotao.controller;
 
 import cn.jkg.taotao.pojo.*;
-import cn.jkg.taotao.service.ItemDescService;
 import cn.jkg.taotao.service.ItemService;
 import cn.jkg.taotao.utils.IDUtils;
 import org.springframework.beans.factory.annotation.Autowired;

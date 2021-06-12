@@ -77,6 +77,11 @@
 	});
 	//提交表单
 	function submitForm(){
+		//类目cid不能为空
+		if($("#itemAddForm [name=cid]").val() == ""){
+			$.messager.alert('提示','请选择一个类目！');
+			return ;
+		}
 		//有效性验证
 		if(!$('#itemAddForm').form('validate')){
 			$.messager.alert('提示','表单还未填写完成!');
@@ -120,6 +125,7 @@
 	
 	function clearForm(){
 		$('#itemAddForm').form('reset');
+		$("#itemAddForm [name=cid]").val("");
 		itemAddEditor.html('');
 	}
 </script>
