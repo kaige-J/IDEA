@@ -76,4 +76,28 @@ public class ItemController {
         }
         return TaotaoResult.build(404,"删除失败！",null);
     }
+    @RequestMapping(value = "/rest/update", method = RequestMethod.POST)
+    @ResponseBody
+    private TaotaoResult updateItemByID(TbItem item, String desc, String itemParams, Long itemParamId){
+        Date update = new Date();
+
+        item.setUpdated(update);
+
+        TbItemDesc itemDesc = new TbItemDesc();
+        itemDesc.setUpdated(update);
+        itemDesc.setItemDesc(desc);
+        itemDesc.setItemId(item.getId());
+
+        TbItemParamItem paramItem = new TbItemParamItem();
+        paramItem.setId(itemParamId);
+        paramItem.setItemId(item.getId());
+        paramItem.setParamData(itemParams);
+        paramItem.setUpdated(update);
+
+        boolean b = itemService.updateItemByID(item, itemDesc, paramItem);
+        if (b){
+            return TaotaoResult.ok();
+        }
+        return TaotaoResult.build(404,null);
+    }
 }

@@ -46,4 +46,12 @@ public interface ItemService {
      * @return boolean
      **/
     boolean deleteItemsByIDS(List ids);
+    /**
+     * @Author jkg
+     * @Description 修改商品的信息
+     * @Date 01:37 2021/6/13
+     * @Param [cn.jkg.taotao.pojo.TbItem, cn.jkg.taotao.pojo.TbItemDesc, cn.jkg.taotao.pojo.TbItemParamItem] [item, desc, param]
+     * @return boolean
+     **/
+    boolean updateItemByID(TbItem item, TbItemDesc desc, TbItemParamItem param);
 }

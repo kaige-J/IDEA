@@ -100,4 +100,25 @@ public class ItemServiceImpl implements ItemService {
         }
         return false;
     }
+
+    /**
+     * @param item
+     * @param desc
+     * @param param
+     * @return boolean
+     * @Author jkg
+     * @Description 修改商品的信息
+     * @Date 01:37 2021/6/13
+     * @Param [cn.jkg.taotao.pojo.TbItem, cn.jkg.taotao.pojo.TbItemDesc, cn.jkg.taotao.pojo.TbItemParamItem] [item, desc, param]
+     */
+    @Override
+    public boolean updateItemByID(TbItem item, TbItemDesc desc, TbItemParamItem param) {
+        int i1 = itemMapper.updateByPrimaryKeySelective(item);
+        int i2 = itemDescMapper.updateByPrimaryKeySelective(desc);
+        int i3 = itemParamItemMapper.updateByPrimaryKeySelective(param);
+        if (i1 != 0 && i2 != 0 && i3 != 0) {
+            return true;
+        }
+        return false;
+    }
 }

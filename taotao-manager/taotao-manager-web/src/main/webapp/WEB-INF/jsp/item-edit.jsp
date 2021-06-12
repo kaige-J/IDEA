@@ -72,6 +72,11 @@
 	});
 	
 	function submitForm(){
+		//类目cid不能为空
+		if($("#itemAddForm [name=cid]").val() == ""){
+			$.messager.alert('提示','请选择一个类目！');
+			return ;
+		}
 		if(!$('#itemeEditForm').form('validate')){
 			$.messager.alert('提示','表单还未填写完成!');
 			return ;
@@ -96,6 +101,7 @@
 				"params": ps
 			});
 		});
+
 		paramJson = JSON.stringify(paramJson);
 		
 		$("#itemeEditForm [name=itemParams]").val(paramJson);
